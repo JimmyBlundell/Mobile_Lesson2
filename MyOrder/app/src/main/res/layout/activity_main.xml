@@ -110,21 +110,11 @@
             android:layout_weight="1" >
         </Space>
         <Button
+            android:id="@+id/submit_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:onClick="submitOrder"
             android:paddingTop="10dp"
-            android:onClick="increment"
-            android:text="SUMMARY" />
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="5dp"
-            android:layout_weight="1" >
-        </Space>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="10dp"
-            android:onClick="increment"
             android:text="SUBMIT" />
     </LinearLayout>
 </ScrollView>

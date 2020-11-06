@@ -223,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Log.i("MainActivity", "Please select less than one hundred cups of coffee");
             Context context = getApplicationContext();
-            String lowerLimitToast = getString(R.string.too_much_coffee);
+            String lowerLimitToast = getString(R.string.too_many_pizzas);
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, lowerLimitToast, duration);
             toast.show();

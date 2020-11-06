@@ -23,6 +23,6 @@
     <string name="order_summary_quantity">Quantity: <xliff:g example="2" id="quantity">%d</xliff:g></string>
     <string name="order_summary_total_price">Total: $ <xliff:g example="10" id="price">%.2f</xliff:g></string>
     <string name="thank_you">Thank you!</string>
-    <string name="too_much_coffee">Please select less than one hundred cups of coffee</string>
+    <string name="too_many_pizzas">Please select less than one hundred pizzas</string>
     <string name="too_little_pizzas">Please select at least one pizza</string>
 </resources>
