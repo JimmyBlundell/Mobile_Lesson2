@@ -2,19 +2,27 @@
     <string name="app_name">My Order</string>
     <string name="name">Name</string>
     <string name="toppings">Toppings</string>
-    <string name="whipped_cream">Whipped Cream</string>
-    <string name="chocolate">Chocolate</string>
+    <string name="pepperonis">Pepperonis</string>
+    <string name="sausage">Sausage</string>
+    <string name="jalapenos">Jalapenos</string>
+    <string name="onions">Onions</string>
+    <string name="mushrooms">Mushrooms</string>
+    <string name="garlic">Garlic</string>
     <string name="quantity">Quantity</string>
     <string name="initial_quantity_value">2</string>
     <string name="order">Order</string>
-    <string name="order_summary_name">Name:<xliff:g example="Vijaya" id="name">%s</xliff:g></string>
+    <string name="order_summary_name">Name:<xliff:g example="Jimmy" id="name">%s</xliff:g></string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="order_summary_whipped_cream">Add Whipped Cream? <xliff:g example="yes" id="addWhippedCream">%s</xliff:g></string>
-    <string name="order_summary_chocolate">Add chocolate? <xliff:g example="yes" id="addChocolate">%s</xliff:g></string>
+    <string name="order_summary_pepperonis">Add Pepperonis? <xliff:g example="yes" id="addPepperonis">%s</xliff:g></string>
+    <string name="order_summary_sausage">Add Sausage? <xliff:g example="yes" id="addSausage">%s</xliff:g></string>
+    <string name="order_summary_jalapenos">Add Jalapenos? <xliff:g example="yes" id="addJalapenos">%s</xliff:g></string>
+    <string name="order_summary_mushrooms">Add Onions? <xliff:g example="yes" id="addOnions">%s</xliff:g></string>
+    <string name="order_summary_onions">Add Mushrooms? <xliff:g example="yes" id="addMushrooms">%s</xliff:g></string>
+    <string name="order_summary_garlic">Add Garlic? <xliff:g example="yes" id="addGarlic">%s</xliff:g></string>
     <string name="order_summary_quantity">Quantity: <xliff:g example="2" id="quantity">%d</xliff:g></string>
     <string name="order_summary_total_price">Total: $ <xliff:g example="10" id="price">%.2f</xliff:g></string>
     <string name="thank_you">Thank you!</string>
     <string name="too_much_coffee">Please select less than one hundred cups of coffee</string>
-    <string name="too_little_coffee">Please select atleast one cup of coffee</string>
+    <string name="too_little_pizzas">Please select at least one pizza</string>
 </resources>
