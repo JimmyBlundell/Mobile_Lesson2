@@ -110,11 +110,11 @@
             android:layout_weight="1" >
         </Space>
         <Button
-            android:id="@+id/submit_button"
+            android:id="@+id/order_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="submitOrder"
+            android:onClick="sendEmail"
             android:paddingTop="10dp"
-            android:text="SUBMIT" />
+            android:text="ORDER" />
     </LinearLayout>
 </ScrollView>

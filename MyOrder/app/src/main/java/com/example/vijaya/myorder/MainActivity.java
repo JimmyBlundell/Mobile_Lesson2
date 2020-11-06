@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     String name = "";
     String order = "";
     String price = "";
-    String quant = "";
+    String num = "";
 
 
     @Override
@@ -80,14 +80,14 @@ public class MainActivity extends AppCompatActivity {
         redirect.putExtra("OrderSummaryMessage", orderSummaryMessage);
         redirect.putExtra("order", order);
         redirect.putExtra("price", price);
-        redirect.putExtra("quant", quant);
+        redirect.putExtra("num", num);
         redirect.putExtra("name", name);
 
         startActivity(redirect);
 
     }
 
-    public void sendEmail(String name, String output) {
+    public void sendEmail(View view) {
 
         // get user input
         EditText userInputNameView = findViewById(R.id.user_input);
@@ -120,23 +120,12 @@ public class MainActivity extends AppCompatActivity {
         // calculate and store the total price
         float totalPrice = calculatePrice(hasPepperonis, hasSausage, hasJalapenos, hasOnions, hasMushrooms, hasGarlic);
 
-        String orderSummaryMessage = getString(R.string.order_summary_name, userInputName) + "\n" +
-                getString(R.string.order_summary_pepperonis, boolToString(hasPepperonis)) + "\n" +
-                getString(R.string.order_summary_sausage, boolToString(hasSausage)) + "\n" +
-                getString(R.string.order_summary_jalapenos, boolToString(hasJalapenos)) + "\n" +
-                getString(R.string.order_summary_onions, boolToString(hasOnions)) + "\n" +
-                getString(R.string.order_summary_mushrooms, boolToString(hasMushrooms)) + "\n" +
-                getString(R.string.order_summary_garlic, boolToString(hasGarlic)) + "\n" +
-                getString(R.string.order_summary_quantity, quantity) + "\n" +
-                getString(R.string.order_summary_total_price, totalPrice) + "\n" +
-                getString(R.string.thank_you);
+        String orderSummaryMsg = createOrderSummary(userInputName, hasPepperonis, hasSausage, hasJalapenos, hasOnions, hasMushrooms, hasGarlic, totalPrice);
 
-        // TODO: create email text view
-        TextView email = (TextView) findViewById(R.id.email);
 
         Log.i("Send email", "");
-        String[] TO = {email.getText().toString()};
-        String[] CC = {""};
+        String[] TO = {"jblundell123@gmail.com"};
+        String[] CC = {"jblundell123@gmail.com"};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
         emailIntent.setData(Uri.parse("mailto:"));
@@ -144,10 +133,10 @@ public class MainActivity extends AppCompatActivity {
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
         emailIntent.putExtra(Intent.EXTRA_CC, CC);
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Your Pizza Order!");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, orderSummaryMessage);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, orderSummaryMsg);
 
         try {
-            startActivity(Intent.createChooser(emailIntent, "Send email"));
+            startActivity(Intent.createChooser(emailIntent, "Send email..."));
             finish();
             Log.i("Email sent", "");
         } catch (android.content.ActivityNotFoundException ex) {
