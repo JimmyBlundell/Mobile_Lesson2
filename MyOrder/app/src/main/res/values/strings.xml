@@ -20,9 +20,11 @@
     <string name="order_summary_mushrooms">Add Onions? <xliff:g example="yes" id="addOnions">%s</xliff:g></string>
     <string name="order_summary_onions">Add Mushrooms? <xliff:g example="yes" id="addMushrooms">%s</xliff:g></string>
     <string name="order_summary_garlic">Add Garlic? <xliff:g example="yes" id="addGarlic">%s</xliff:g></string>
-    <string name="order_summary_quantity">Quantity: <xliff:g example="2" id="quantity">%d</xliff:g></string>
+    <string name="order_summary_quantity">Quantity: <xliff:g example="1" id="quantity">%d</xliff:g></string>
     <string name="order_summary_total_price">Total: $ <xliff:g example="10" id="price">%.2f</xliff:g></string>
     <string name="thank_you">Thank you!</string>
     <string name="too_many_pizzas">Please select less than one hundred pizzas</string>
     <string name="too_little_pizzas">Please select at least one pizza</string>
+    <string name="home">Home</string>
+    <string name="order_summary">Order Summary</string>
 </resources>

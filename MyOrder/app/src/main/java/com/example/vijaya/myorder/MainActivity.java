@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String MAIN_ACTIVITY_TAG = "MainActivity";
     final int PIZZA_PRICE = 6;
     final int pepperonis_price = 2;
     final int sausage_price = 2;
@@ -28,64 +28,28 @@ public class MainActivity extends AppCompatActivity {
     String price = "";
     String num = "";
 
+    private Button summaryButton;
+    private Button orderButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        summaryButton = findViewById(R.id.summary_button);
+        orderButton = findViewById(R.id.order_button);
+
+        summaryButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               orderSummary(view);
+           }
+        });
+
     }
 
     /**
      * This method is called when the order button is clicked.
      */
-
-    public void submitOrder(View view) {
-
-        // get user input
-        EditText userInputNameView = (EditText) findViewById(R.id.user_input);
-        String userInputName = userInputNameView.getText().toString();
-
-        // check if pepperonis is selected
-        CheckBox pepperonis = (CheckBox) findViewById(R.id.pepperonis_checked);
-        boolean hasPepperonis = pepperonis.isChecked();
-
-        // check if sausage is selected
-        CheckBox sausage = (CheckBox) findViewById(R.id.sausage_checked);
-        boolean hasSausage = sausage.isChecked();
-
-        // check if jalapenos is selected
-        CheckBox jalapenos = (CheckBox) findViewById(R.id.jalapenos_checked);
-        boolean hasJalapenos = jalapenos.isChecked();
-
-        // check if mushrooms is selected
-        CheckBox mushrooms = (CheckBox) findViewById(R.id.mushrooms_checked);
-        boolean hasMushrooms = mushrooms.isChecked();
-
-        // check if onions is selected
-        CheckBox onions = (CheckBox) findViewById(R.id.onions_checked);
-        boolean hasOnions = onions.isChecked();
-
-        // check if garlic is selected
-        CheckBox garlic = (CheckBox) findViewById(R.id.garlic_checked);
-        boolean hasGarlic = garlic.isChecked();
-
-        // calculate and store the total price
-        float totalPrice = calculatePrice(hasPepperonis, hasSausage, hasJalapenos, hasOnions, hasMushrooms, hasGarlic);
-
-        // create and store the order summary
-        String orderSummaryMessage = createOrderSummary(userInputName, hasPepperonis, hasSausage, hasJalapenos, hasOnions, hasMushrooms, hasGarlic, totalPrice);
-
-        // Write the relevant code for making the buttons work(i.e implement the implicit and explicit intents
-        Intent redirect = new Intent(MainActivity.this, SummaryActivity.class);
-        redirect.putExtra("OrderSummaryMessage", orderSummaryMessage);
-        redirect.putExtra("order", order);
-        redirect.putExtra("price", price);
-        redirect.putExtra("num", num);
-        redirect.putExtra("name", name);
-
-        startActivity(redirect);
-
-    }
 
     public void sendEmail(View view) {
 
@@ -238,5 +202,45 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
             return;
         }
+    }
+
+    public void orderSummary(View view) {
+        // get user input
+        EditText userInputNameView = (EditText) findViewById(R.id.user_input);
+        String userInputName = userInputNameView.getText().toString();
+
+        // check if pepperonis is selected
+        CheckBox pepperonis = (CheckBox) findViewById(R.id.pepperonis_checked);
+        boolean hasPepperonis = pepperonis.isChecked();
+
+        // check if sausage is selected
+        CheckBox sausage = (CheckBox) findViewById(R.id.sausage_checked);
+        boolean hasSausage = sausage.isChecked();
+
+        // check if jalapenos is selected
+        CheckBox jalapenos = (CheckBox) findViewById(R.id.jalapenos_checked);
+        boolean hasJalapenos = jalapenos.isChecked();
+
+        // check if mushrooms is selected
+        CheckBox mushrooms = (CheckBox) findViewById(R.id.mushrooms_checked);
+        boolean hasMushrooms = mushrooms.isChecked();
+
+        // check if onions is selected
+        CheckBox onions = (CheckBox) findViewById(R.id.onions_checked);
+        boolean hasOnions = onions.isChecked();
+
+        // check if garlic is selected
+        CheckBox garlic = (CheckBox) findViewById(R.id.garlic_checked);
+        boolean hasGarlic = garlic.isChecked();
+
+        // calculate and store the total price
+        float totalPrice = calculatePrice(hasPepperonis, hasSausage, hasJalapenos, hasOnions, hasMushrooms, hasGarlic);
+
+        // create and store the order summary
+        String orderSummaryMessage = createOrderSummary(userInputName, hasPepperonis, hasSausage, hasJalapenos, hasOnions, hasMushrooms, hasGarlic, totalPrice);
+
+        Intent intent = new Intent(MainActivity.this, SummaryActivity.class);
+        intent.putExtra("orderSummary", orderSummaryMessage);
+        startActivity(intent);
     }
 }
